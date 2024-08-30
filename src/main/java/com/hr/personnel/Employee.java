@@ -28,7 +28,8 @@ public abstract class Employee {
 }
 
 
-
+/* write test code for hourly employee and salaried employee
+ */
 
 /*
 private: Only within the same class.

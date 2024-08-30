@@ -1,5 +1,3 @@
-package java;
-
 import com.hr.personnel.Department;
 import com.hr.personnel.Employee;
 import com.hr.personnel.HourlyEmployee;
@@ -24,7 +22,7 @@ public class DepartmentTest {
     @Test
     public void testAddEmployee() {
         // Create an employee and add to the department
-        Employee employee = new SalariedEmployee("John Doe", 50000, LocalDate.of(2022, 1, 1));
+        Employee employee = new SalariedEmployee("Alanii Milan", 50000, LocalDate.of(2022, 1, 1));
         department.addEmployee(employee);
 
         // Check if the employee was added correctly

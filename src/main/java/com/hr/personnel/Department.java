@@ -10,8 +10,8 @@ public class Department {
     public Department(String name, String location) {
         this.name = name;
         this.location = location;
-        this.employees = new Employee[100]; // Initialize the array with size 100
-        this.currentIndex = 0; // Set currentIndex to 0 initially
+        this.employees = new Employee[100];
+        this.currentIndex = 0;
     }
 
     // Method to add an Employee to the department
@@ -35,4 +35,11 @@ public class Department {
         return count;
     }
 
+    public Employee[] getEmployees() {
+        return employees;
+    }
+
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
 }

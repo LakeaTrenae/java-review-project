@@ -7,7 +7,7 @@ import com.hr.personnel.SalariedEmployee;
 
 import java.time.LocalDate;
 
-class HRClient {
+public class HRClient {
     public static void main(String[] args) {
         // Create Department object
         Department department = new Department("Software Engineer Department", "Dubai");
