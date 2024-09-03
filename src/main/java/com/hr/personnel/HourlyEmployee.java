@@ -15,6 +15,11 @@ public class HourlyEmployee extends Employee {
     @Override
     public String getEmployeeInfo() {
         return String.format("Hourly Employee: %s, Hire Date: %s, Pay: %.2f",
-                getName(), getHireDate(), hourlyRate * hoursWorked);
+                getName(), getHireDate(), computeMonthlyCompensation());
+    }
+
+    @Override
+    public double computeMonthlyCompensation() {
+        return hourlyRate * hoursWorked; // Calculate and return the monthly pay
     }
 }

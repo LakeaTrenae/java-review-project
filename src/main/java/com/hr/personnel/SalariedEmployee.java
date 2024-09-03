@@ -15,4 +15,9 @@ public class SalariedEmployee extends Employee {
         return String.format("Salaried Employee: %s, Hire Date: %s, Salary: %.2f",
                 getName(), getHireDate(), annualSalary);
     }
+
+    @Override
+    public double computeMonthlyCompensation() {
+        return annualSalary / 12.0; // Calculate and return the monthly salary
+    }
 }
