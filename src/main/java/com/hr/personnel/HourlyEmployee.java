@@ -4,22 +4,22 @@ import java.time.LocalDate;
 
 public class HourlyEmployee extends Employee {
     private double hourlyRate;
-    private int hoursWorked;
+    private double hoursWorkedPerMonth;
 
-    public HourlyEmployee(String name, double hourlyRate, int hoursWorked, LocalDate hireDate) {
+    public HourlyEmployee(String name, LocalDate hireDate, double hourlyRate, double hoursWorkedPerMonth) {
         super(name, hireDate);
         this.hourlyRate = hourlyRate;
-        this.hoursWorked = hoursWorked;
-    }
-
-    @Override
-    public String getEmployeeInfo() {
-        return String.format("Hourly Employee: %s, Hire Date: %s, Pay: %.2f",
-                getName(), getHireDate(), computeMonthlyCompensation());
+        this.hoursWorkedPerMonth = hoursWorkedPerMonth;
     }
 
     @Override
     public double computeMonthlyCompensation() {
-        return hourlyRate * hoursWorked; // Calculate and return the monthly pay
+        return hourlyRate * hoursWorkedPerMonth;
+    }
+
+    @Override
+    public String getEmployeeInfo() {
+        return String.format("Name: %s\nHire Date: %s\nHourly Rate: $%.2f\nHours Worked Per Month: %.2f",
+                getName(), getHireDate(), hourlyRate, hoursWorkedPerMonth);
     }
 }
