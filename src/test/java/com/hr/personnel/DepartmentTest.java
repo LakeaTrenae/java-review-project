@@ -1,10 +1,8 @@
-import com.hr.personnel.Department;
-import com.hr.personnel.Employee;
-import com.hr.personnel.HourlyEmployee;
-import com.hr.personnel.SalariedEmployee;
+package com.hr.personnel;
+
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+
 
 import java.time.LocalDate;
 
@@ -14,7 +12,7 @@ public class DepartmentTest {
 
     private Department department;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         // Initialize the Department before each test
         department = new Department("Software Engineer Department", "Dubai");

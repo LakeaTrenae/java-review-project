@@ -1,8 +1,10 @@
 package com.hr.personnel;
 
+import com.gov.irs.TaxPayer;
+
 import java.time.LocalDate;
 
-public abstract class Employee {
+public abstract class Employee implements TaxPayer {
     private String name;
     private LocalDate hireDate;
 
@@ -23,8 +25,9 @@ public abstract class Employee {
         return name + " worked"; // Example implementation
     }
 
-    public String getEmployeeInfo() {
-        return null;
+    public abstract double computeMonthlyTaxToPay();
+
+    public abstract String getEmployeeInfo(); {
     }
 
     public void setName(String name) {

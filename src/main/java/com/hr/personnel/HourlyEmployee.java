@@ -18,6 +18,12 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
+    public double computeMonthlyTaxToPay() {
+        double monthlyCompensation = computeMonthlyCompensation();
+        return monthlyCompensation * HOURLY_TAX_RATE;
+    }
+
+    @Override
     public String getEmployeeInfo() {
         return String.format("Name: %s\nHire Date: %s\nHourly Rate: $%.2f\nHours Worked Per Month: %.2f",
                 getName(), getHireDate(), hourlyRate, hoursWorkedPerMonth);
