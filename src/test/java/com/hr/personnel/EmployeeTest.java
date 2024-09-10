@@ -1,6 +1,7 @@
 package com.hr.personnel;
 
 import com.gov.irs.TaxPayer;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -68,11 +69,42 @@ public class EmployeeTest {
                 "Cinnamon", LocalDate.of(2014, 4, 26), 20.0, 160.0);
         String actualInfo = hourlyEmployee.getEmployeeInfo();
 
-        // Print statements for debugging
         System.out.println("Expected Info: " + expectedInfo);
         System.out.println("Actual Info: " + actualInfo);
 
-        // Assert equality
+
         assertEquals(expectedInfo, actualInfo);
     }
+
+    @Test
+    public void testValidHourlyRate() {
+        HourlyEmployee hourlyEmployee = new HourlyEmployee("Valid Employee", LocalDate.of(2022, 1, 1), 10.0, 160);
+
+        assertEquals("Valid Employee", hourlyEmployee.getName());
+        assertEquals(LocalDate.of(2022, 1, 1), hourlyEmployee.getHireDate());
+        assertEquals(10.0, hourlyEmployee.getHourlyRate(), 0.01);
+        assertEquals(160, hourlyEmployee.getHoursWorkedPerMonth(), 0.01);
+    }
+
+    @Test
+    public void testMinimumHourlyRate() {
+        HourlyEmployee hourlyEmployee = new HourlyEmployee("Min Wage Employee", LocalDate.of(2022, 1, 1), HourlyEmployee.FEDERAL_MINIMUM_HOURLY_WAGE, 160);
+
+        assertEquals("Min Wage Employee", hourlyEmployee.getName());
+        assertEquals(LocalDate.of(2022, 1, 1), hourlyEmployee.getHireDate());
+        assertEquals(HourlyEmployee.FEDERAL_MINIMUM_HOURLY_WAGE, hourlyEmployee.getHourlyRate(), 0.01);
+        assertEquals(160, hourlyEmployee.getHoursWorkedPerMonth(), 0.01);
+    }
+
+    @Test
+    public void testInvalidHourlyRate() {
+        try {
+            new HourlyEmployee("Invalid Employee", LocalDate.of(2022, 1, 1), 6.0, 160);
+            Assert.fail("Expected IllegalArgumentException not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Hourly rate cannot be less than the federal minimum wage of $7.0", e.getMessage());
+        }
+    }
+
+
 }

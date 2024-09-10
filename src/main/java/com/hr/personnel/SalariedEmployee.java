@@ -3,6 +3,7 @@ package com.hr.personnel;
 import java.time.LocalDate;
 
 public class SalariedEmployee extends Employee {
+
     private double annualSalary;
 
     public SalariedEmployee(String name, LocalDate hireDate, double annualSalary) {
